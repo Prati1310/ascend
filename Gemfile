@@ -88,3 +88,5 @@ gem "whenever", require: false
 gem "responders", github: "heartcombo/responders", branch: "main"
 gem 'bootstrap', '~> 5.2.2'
 gem 'jquery-rails'
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

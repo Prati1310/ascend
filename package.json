@@ -11,5 +11,6 @@
     "bootstrap-icons": "^1.9.1",
     "esbuild": "^0.15.12",
     "sass": "^1.55.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

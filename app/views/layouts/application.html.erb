@@ -1,13 +1,94 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Prativindya  - The Modern Copywriter</title>
+    <title>Ascend | Online Retreat for Design Leaders & Thinkers</title>
+
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+    <title>Ascend | Online Retreat for Design Leaders & Thinkers</title>
+
+<meta name="title" property='og:title' content='Ascend | Online Retreat for Design Leaders & Thinkers'/>
+
+
+  <meta name="image" property='og:image:secure_url' itemprop="image" content='<%= image_path("https://res.cloudinary.com/cloudy11/image/upload/v1713833285/logo_uplby3.png", :width => 1200, :height => 700, :crop => :fill) %>'/>
+
+<meta property='og:description' content='Align your Mind & Soul towards a clear Purpose for your Creative Journey and Elevate your Career Wellness.'/>
+<meta property='og:url' content='https://unlockascend.com'/>
+
+<!-- for twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:url" content="https://unlockascend.com" />
+<meta property="og:title" content="Ascend | Online Retreat for Design Leaders & Thinkers" />
+<meta property="og:description" content="Align your Mind & Soul towards a clear Purpose for your Creative Journey and Elevate your Career Wellness." />
+
+  <meta name="twitter:image" content="<%= image_path("https://res.cloudinary.com/cloudy11/image/upload/v1713833285/logo_uplby3.png", :width => 1200, :height => 600, :crop => :fill) %>" >
+
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+
+
+
+
+
+
+
+
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@100,101,300,301,400,401,700,701,800,801&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+
+    <link rel="stylesheet" href="schedule-assets/css/style.css">
+    <link href="theme.css" rel="stylesheet" />
+ 
+
+<!-- ===============================================-->
+    <!--    Registration Form-->
+<!-- ===============================================-->
+ <script async src="https://tally.so/widgets/embed.js"></script>
+
+
+<!-- ===============================================-->
+    <!--    Heap Analytics -->
+<!-- ===============================================-->
+<% if Rails.env.development? %>
+  <script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+  heap.load("3420119251");
+</script>
+<% elsif Rails.env.production? %>
+  <script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+  heap.load("2953444621");
+</script>
+<% end %>
+
+ 
+
+<!-- ===============================================-->
+    <!--    Crisp Chat -->
+<!-- ===============================================-->
+
+ <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1bd09df9-b38c-4245-9003-23934268674c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+
   </head>
 
   <body>

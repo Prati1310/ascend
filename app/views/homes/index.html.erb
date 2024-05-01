@@ -1,479 +1,354 @@
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
-    <title>Prativindya - The Modern Copywriter</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/product/">
-
-    
-
-    
-
-<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-    <!-- Favicons -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">   
-<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-<link rel="icon" href="/images/favicon.ico">
-<meta name="theme-color" content="#712cf9">
-
-
-<script type="text/javascript">
- var words = ['Impact', 'Quality', 'Excitement', 'Results','R.O.I'],
-    part,
-    i = 0,
-    offset = 0,
-    len = words.length,
-    forwards = true,
-    skip_count = 0,
-    skip_delay = 25,
-    speed = 100;
-var wordflick = function () {
-  setInterval(function () {
-    if (forwards) {
-      if (offset >= words[i].length) {
-        ++skip_count;
-        if (skip_count == skip_delay) {
-          forwards = false;
-          skip_count = 0;
-        }
-      }
-    }
-    else {
-      if (offset == 0) {
-        forwards = true;
-        i++;
-        offset = 0;
-        if (i >= len) {
-          i = 0;
-        }
-      }
-    }
-    part = words[i].substr(0, offset);
-    if (skip_count == 0) {
-      if (forwards) {
-        offset++;
-      }
-      else {
-        offset--;
-      }
-    }
-    $('.word').text(part);
-  },speed);
-};
-
-$(document).on('ready page:load', function() {
-  wordflick();
-});	
-</script>
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .container {
-  max-width: 960px;
-}
-
-/*
- * Custom translucent site header
- */
-
-.site-header {
-  background-color:#FF74B1;
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-}
-.site-header a {
-  color: #FF74B1 !important;
-  transition: color .15s ease-in-out;
-}
-.site-header a:hover {
-  color: #A7FFE4;
-  text-decoration: none;
-}
-
-/*
- * Dummy devices (replace them with your own or something else entirely!)
- */
-
-.product-device {
-  position: absolute;
-  right: 10%;
-  bottom: -30%;
-  width: 300px;
-  height: 540px;
-  background-color: #333;
-  border-radius: 21px;
-  transform: rotate(30deg);
-}
-
-.product-device::before {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  bottom: 10%;
-  left: 10px;
-  content: "";
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: 5px;
-}
-
-.product-device-2 {
-  top: -25%;
-  right: auto;
-  bottom: 0;
-  left: 5%;
-  background-color: #e5e5e5;
-}
-
-
-/*
- * Extra utilities
- */
-
-.flex-equal > * {
-  flex: 1;
-}
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    flex: 1;
-  }
-}
-
-.btn-block {color: #FF74B1;font-weight:600;}
-
-.pink_text {color:#FF74B1 }
-.bold-text {font-weight: 500;}
-
-.badge-light-green {background:#000;color:#A7FFE4;margin-right:10px;padding:0.5em 1em;}
-
-.pink_underline {text-decoration-line: underline;
-  text-underline-offset: 15px;
-  text-decoration-style: wavy;
-	text-decoration-color: #ff74b1;}
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="product.css" rel="stylesheet">
-
-    <!-- splitbee analytics -->
-    <script async src="https://cdn.splitbee.io/sb.js"></script>
-  </head>
   <body>
-    
 
-<header class="site-header sticky-top py-1" >
-  <nav class="container d-flex flex-column flex-md-row justify-content-between">
-   <!--  
-    <a class="py-2 d-none d-md-inline-block" href="#">About</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Work</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Principles</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Products</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Contact</a> -->
-  </nav>
-</header>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="/"><img src="images/logo.png" width="150" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
+                           <li class="nav-item px-3 px-xl-4"><a class="btn btn-primary order-1 order-lg-0 fw-medium" href="https://us06web.zoom.us/meeting/register/tZcud-2qqT0oHd3UO0zrnw-RO0W6HR5euA1f#/registration" target="blank">Free Session <i class="bi-arrow-up-right"></i></a></li>
+             <!--  <li class="nav-item dropdown px-3 px-lg-0"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EN</a> -->
+                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#!">EN</a></li>
+                  <li><a class="dropdown-item" href="#!">BN</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section style="padding-top: 7rem;padding-bottom: 7em;">
+        <div class="bg-holder" style="background-image:url(images/hero-bg.svg);">
+        </div>
+        <!--/.bg-holder-->
 
-<main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center" style="background-image:url(images/cover.png);
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center;  ">
-    <div class="col-md-6 p-lg-6 mx-auto my-5">
-      <h1 class="display-4 fw-bold pink_text">The Modern Copywriter</h1>
-      <p class="lead fw-normal">Hello there! I am Prativindya (Prati), a Bangalore-based <strong>brand copywriter & strategist</strong>. I team up with design teams to deliver communication solutions for key business projects. Be it branding, digital campaigns, films or websites, I will devise communication which is simple, relevant, unique and memorable.</p>
+        <div class="container hero-container">
+          <div class="row align-items-center">
+<!--             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="assets/img/hero/hero-img.png" alt="hero-header" /></div> -->
+            <div class="col-md-12 col-lg-12  text-center py-6" style="text-align:center;">
+              <h4 class="fw-bold mb-3">2-Weekender Online Retreat for Design Leaders</h4>
+              <h1 class="hero-title" style="font-family:'Zodiak', serif;font-weight:900;"><span class="colored">Elevate Your Career Wellness</h1>
+              <p class="mb-4 fw-medium sub-heading">Discover fulfilment in design leadership with Ascend. Let your body, mind and soul guide your career journey.
+</p>  
 
-      
-      <a class="btn btn-dark btn-lg btn-block" href="mailto:prativindya1310@gmail.com" target="_blank" style="padding:1em 3em;"><i class="bi-envelope" style="margin-right: 10px;"></i> Send Me an Email</a>
-    </div>
-    <br>
-   
-  </div>
+              <div class="text-center"> <a class="btn btn-primary btn-lg primary-btn-shadow" href="https://us06web.zoom.us/meeting/register/tZcud-2qqT0oHd3UO0zrnw-RO0W6HR5euA1f#/registration" target="blank" role="button" >Unlock Ascend <i class="bi-arrow-up-right"></i></a> <br>
 
- 	<h2 class="header_text pink_underline" style="text-align:center;margin:1em auto 2em auto">Here's my recent work</h2>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-
-
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5 bold-text">Build For The World</h2>
-        <p class="lead">Nationwide 360° campaign for Karnataka's biggest investment stage - Global Investors Meet</p>
-        <p> <span class="badge badge-light-green">Campaign</span>  <span class="badge badge-light-green">Ads & Films</span></p>
-      
-      <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.001.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5 bold-text">Hello Outdoors</h2>
-        <p class="lead">Hiatus-breaking brand campaign for India's foremost outdoor gear brand</p>
-        <p> <span class="badge badge-light-green">Strategy</span> <span class="badge badge-light-green">Campaign</span></p>
-      	<p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.002.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5 bold-text">Young minds with big dreams</h2>
-        <p class="lead">Launch campaign for an innovative global learning platform for Gen-Z</p>
-        <p> <span class="badge badge-light-green">Campaign</span><span class="badge badge-light-green">Digital Ads</span> </p>
-      <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.004.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-      	<h2 class="display-5 bold-text">As real as you can imagine</h2>
-        <p class="lead">Product launch campaign for a niche, high-value market category</p>
-        <p> <span class="badge badge-light-green">Campaign</span> <span class="badge badge-light-green">Website</span></p>
-      <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.003.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-      
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5 bold-text">Innovation Now. Growth Forever.</h2>
-        <p class="lead">Rebranding a government entity to appeal a global audience</p>
-        <p> <span class="badge badge-light-green">Positioning</span> <span class="badge badge-light-green">Website</span></p>
-        <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.005.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-     
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5 bold-text">The good of greens</h2>
-        <p class="lead">Positioning and launch of a progressive brand in a crowded F&B category</p>
-        <p> <span class="badge badge-light-green">Positioning</span> <span class="badge badge-light-green">Campaign</span></p>
-        <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.006.png',style:"width:100%;margin:auto;border-radius:10px" %> </p> 
-      </div>
-     
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5 bold-text">Emami Realty</h2>
-        <p class="lead">Making a statement for a mega real estate brand</p>
-        <p> <span class="badge badge-light-green">Print Ads</span></p>
-        <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.007.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-     
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5 bold-text">Smart Technologies</h2>
-        <p class="lead">Introducing a hardware product range with fun and humour</p>
-        <p><span class="badge badge-light-green">Campaign</span><span class="badge badge-light-green">Print</span></p>
-        <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.008.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-     
-    </div>
-  </div>
-
- <!--  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5 bold-text">AMD Accelerate</h2>
-        <p class="lead">Revamping an iconic local fashion brand of the yesteryear</p>
-        <p> <span class="badge badge-light-green">Website</span></p>
-        <p style=";text-align:center;margin:1em auto;max-width:500px"><%= image_tag '/images/portfolio.009.png',style:"width:100%;margin:auto;border-radius:10px" %> </p>
-      </div>
-     
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5 bold-text">GoK Print ads</h2>
-        <p class="lead">On-ground campaign for one of the biggest entertainment brand</p>
-        <p> <span class="badge badge-light-green">Print Ads</span></p>
-      </div>
-     
-    </div> -->
-  </div>
+              </div>
+              <p style="text-align:center;margin-top: 1em;">Join our Free info session. ☝️Register Now!</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-<h2 class="header_text" style="text-align:center;margin:3em auto 1em auto;max-width:500px;">Want to know more about my work or <span class="pink_text">discuss a new project?</span></h2>
-	<p style="text-align: center;">
-      <a class="btn btn-dark btn-lg btn-block" href="mailto:prativindya1310@gmail.com" target="_blank" style="padding:1em 3em;"><i class="bi-envelope" style="margin-right: 10px;"></i>Send Me an Email</a>
-      </p>
+     <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-5 pt-md-9 dark-section" id="service">
 
-<div class="row" style="max-width:90%;margin:5em auto;text-align: center;">
-	<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-piggy-bank pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			Risk-free Pricing
-		</h5>
-		<p>
-			10% upfront fees followed by mutually agreed milestone payments.
-		</p>
-	</div>
-		<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-shield-check pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			NDA contracts
-		</h5>
-		<p>
-			All project assets forever protected with standard privacy contracts. 
-		</p>
-	</div>
-		<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-person-video pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			Clarity
-		</h5>
-		<p>
-			Clear communication, documentation and updates all along.
-		</p>
-	</div>
-		<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-calendar-check pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			Transparency
-		</h5>
-		<p>
-			Timelines, pricing, or work scope, what I commit is what you get.
-		</p>
-	</div>
-		<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-envelope-open-heart pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			Long-term
-		</h5>
-		<p>
-			It is about building successful business relationships for me. 
-		</p>
-	</div>
-
-	<div class="col-md-4" style="padding:2em 1em;max-width:350px;margin: auto;">
-		<i class="bi-emoji-sunglasses pink_text" style="font-size:4em">
-			
-		</i>
-		<h5 style="margin-top:1em">
-			Adaptability
-		</h5>
-		<p>
-			Independent expert or collaborative teammate, I am flexible & efficient eitherways.
-		</p>
-	</div>
-</div>
-
-</main>
-
-<footer class="container py-5" style="margin-bottom: 5em;:">
-
-<h2 class="header_text pink_underline" style="text-align:center;margin:2em auto">A bit more about myself</h2>
-
-  <div class="row">
-
-    <div class="col-md-6 col-md" style="text-align:center">
-      <h5 class="pink_text">Lifestyle</h5>
-      <br>
-      <ul class="list-unstyled text-small">
-        <li>Early riser</li>
-        <li>Engineer-turned-writer</li>
-        <li>Aamchi Mumbai</li>
-        <li>Symbiosis Alumni</li>
-        <li> <a class="link-secondary" href="https://www.instagram.com/ragi.thegoodestboi/" target="blank">Pet Parent</a></li>
-        <li> <a class="link-secondary" href="https://www.chess.com/member/pratibomber" target="blank">Chess addict</a></li>
-        <li>Chelsea FC Supporter</li>       
-      </ul>
-    </div>
-
-    <div class="col-md-6 col-md" style="text-align:center">
-      <h5 class="pink_text">Projects</h5>
-      <br>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="https://betadare.com" target="blank" >Betadare <i class="bi-arrow-right-short" style="margin-left:5px"></i></a><br><span style="font-size:0.8em;opacity:0.7;">Find top Video Pros in India</span></li>
-        <br>
-        <li><a class="link-secondary" href="https://prowdfeed.com" target="blank">Prowdfeed <i class="bi-arrow-right-short" style="margin-left:5px"></i></a><br><span style="font-size:0.8em;opacity:0.7;">Collect content ideas, requests & feedback from audience</span></li>
-        <br>
-        <li><a class="link-secondary" href="https://resend.onrender.com" target="blank" >Ad Mark <i class="bi-arrow-right-short" style="margin-left:5px"></i></a><br><span style="font-size:0.8em;opacity:0.7;">Read all the latest marketing news in one place</span></li>
-        <br>
-
-        
-      </ul>
-    </div>
- 
-  </div>
-</footer>
+        <div class="container" >
+          <div class="position-absolute z-index--1 end-0 d-none d-lg-block"><img src="assets/img/category/shape.svg" style="max-width: 200px" alt="service" /></div>
+          <div class="mb-7 text-center">
+            <h3 style="color:#fff" class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">What is ascend?</h3>
+             <p style="color:#fff;font-weight:400;" class="mb-4 sub-heading">
+              A guidance and support system to achieve your career ambitions from a place of balance, peace and alignment.</p>
+              <p style="color:#fff;font-weight:400;" class="mb-4 sub-heading">
+Ascend offers retreats that foster transformative journeys designed exclusively for creative leaders seeking to break free from the confines of conventional career paths and societal expectations. Imagine a space where your inner ambitions, the depths of your soul's calling, and your unique creative essence converge to unlock a new paradigm in your career. 
+</p>
+<p style="color:#fff;font-weight:400;" class="mb-4 sub-heading">
+Aim to centre yourself and embody the best version of you as you redefine 'Career' as your life's work with Ascend.
+</p>
 
 
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+          </div>
+          
+          <div class="text-center"> <a class="btn btn-secondary btn-lg primary-btn-shadow" href="https://us06web.zoom.us/meeting/register/tZcud-2qqT0oHd3UO0zrnw-RO0W6HR5euA1f#/registration" target="blank" role="button" >Join a Free Session <i class="bi-arrow-up-right"></i></a> <br>
+
+              </div>
+              <p style="text-align:center;margin-top: 1em;">April 27th, Saturday. ☝️Register Now!</p>
+
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <section class="pt-5 dark-section" id="destination" style="margin-bottom:4em">
+         <video src="images/ascendvideo.mp4" loop="true" controls="false" muted autoplay="true"></video> 
+      </section>
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-5 dark-section" id="destination" style="margin-bottom:4em">
+
+        <div class="container" style="">
+          
+          <div class="mb-7 text-center">
+            <h5 class="text-secondary">United by a common purpose</h5>
+            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize" style="color:#fff">Meet your guides</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="images/Ashima.jpg" alt="Ashima Sood" />
+                <div class="card-body py-4 px-3">
+                  <div class="d-flex align-items-center" style="margin-bottom: 1em;"><span class="fs-0 fw-medium">Hosted by</span></div>
+
+                  <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                    <h4 class="text-secondary fw-medium"><span class="link-900 text-decoration-none stretched-link" href="">Ashima Sood / The UX Guys</span></h4>
+                    
+                  </div>
+                  <p>This retreat embodies all that she values - creativity, ambition, and peace - as an architect, advocate, mentor, business owner, and yoga teacher.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="images/heba.png" alt="Heba Abdul" />
+                <div class="card-body py-4 px-3">
+                  <div class="d-flex align-items-center" style="margin-bottom: 1em;"><span class="fs-0 fw-medium">Futures Guide</span></div>
+
+                  <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                    <h4 class="text-secondary fw-medium"><span class="link-900 text-decoration-none stretched-link" href="">Heba Abdul / BetterFlow</span></h4>
+                   
+                  </div>
+                   <p>Heba, a futurist with a Design Management background, helps you discover your authentic values and backcast your career path.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="images/Naina.jpg" alt="Naina Bajaria Mishra" />
+                <div class="card-body py-4 px-3">
+                  <div class="d-flex align-items-center" style="margin-bottom: 1em;"><span class="fs-0 fw-medium">General Meditations by</span></div>
+
+                  <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                    <h4 class="text-secondary fw-medium"><span class="link-900 text-decoration-none stretched-link" href="">Naina Bajaria Mishra / Naina Ayurveda</span></h4>
+                    
+                  </div>
+                  <p>An ayurvedic consultant, guides clients to clarity, strength, and empowerment in body, mind, and spirit.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="images/meenakshi.png" style="200px" alt="Meenakshi" />
+                <div class="card-body py-4 px-3">
+                  <div class="d-flex align-items-center" style="margin-bottom: 1em;"><span class="fs-0 fw-medium">Asanas by</span></div>
+
+                  <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                    <h4 class="text-secondary fw-medium"><span class="link-900 text-decoration-none stretched-link">Meenakshi Malhotra / Samatvam Yoga Instructor</span></h4>
+
+                  </div>
+                  <p>She traded corporate life for Yoga, and now has over 15 years of experience leading students to a deeper mind-body awareness.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+ <%= render "homes/schedule_images" %>
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-5 pt-md-9" id="service">
+
+        <div class="container">
+         
+          <div class="mb-7 text-center">
+            <h5 class="text-secondary">WHY ASCEND?</h5>
+            <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Built on core values</h3>
+             <p class="mb-4 fw-medium sub-heading">Ascend offers a 6-month membership guidance and support to acheive your career ambitions by elevating your mental and spiritual wellbeing.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 mb-6">
+              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
+                <div class="card-body p-xxl-5 p-4">
+                  <img class="card-img-top" src="images/empowerment.jpg" style="200px;margin-bottom:1em;" alt="Rome, Italty" />
+                  <h4 class="mb-3">Empowerment</h4>
+                  <p class="mb-0 fw-medium">We believe in empowering women leaders to embrace their strengths and capabilities.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 mb-6">
+              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
+                <div class="card-body p-xxl-5 p-4">
+                  <img class="card-img-top" src="images/confidence.jpg" style="200px;margin-bottom:1em;" alt="Rome, Italty" />
+                  <h4 class="mb-3">Confidence</h4>
+                  <p class="mb-0 fw-medium">We foster an environment where women feel empowered to assert themselves and take ownership of their journeys.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 mb-6">
+              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
+                <div class="card-body p-xxl-5 p-4">
+                  <img class="card-img-top" src="images/support.jpg" style="200px;margin-bottom:1em;" alt="Rome, Italty" />
+                  <h4 class="mb-3">Authenticity</h4>
+                  <p class="mb-0 fw-medium">We encourage authenticity and celebrate the diversity of experiences and perspectives within our community.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 mb-6">
+              <div class="card service-card shadow-hover rounded-3 text-center align-items-center">
+                <div class="card-body p-xxl-5 p-4">
+                  <img class="card-img-top" src="images/support1.jpg" style="200px;margin-bottom:1em;" alt="Rome, Italty" />
+                  <h4 class="mb-3">Support</h4>
+                  <p class="mb-0 fw-medium">We are committed to providing unwavering support to women leaders as they navigate their paths to success.</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+<%= render "homes/faqs" %>
 
       
+
+
+
+      
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-6">
+
+        <div class="container">
+          <div class="py-8 px-5 position-relative text-center" style="background-color: rgb(174 160 221 / 40%);border-radius: 129px 20px 20px 20px;">
+<!--             <div class="position-absolute end-0 top-0 z-index--1"> <img src="assets/img/cta/shape-bg2.png" width="264" alt="cta shape" /></div> -->
+            <div class="position-absolute start-0 bottom-0 ms-3 z-index--1 d-none d-sm-block"> <img src="assets/img/cta/shape-bg1.png" style="max-width: 340px;" alt="cta shape" /></div>
+            <div class="row justify-content-center">
+              <div class="col-lg-8 col-md-10">
+                <h2 class="text-secondary lh-1-7 mb-7" style="font-size:2em">Delve into your inner self and begin to view your career as your life's calling. Discover the inspiration to truly be yourself.</h2>
+                <div class="text-center"> <a class="btn btn-primary btn-lg primary-btn-shadow" href="https://us06web.zoom.us/meeting/register/tZcud-2qqT0oHd3UO0zrnw-RO0W6HR5euA1f#/registration" target="blank" role="button" >Join a Free Session <i class="bi-arrow-up-right"></i></a> <br>
+
+              </div>
+              <p style="text-align:center;margin-top: 1em;">April 27th, Saturday. ☝️Register Now!</p>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-0 pb-lg-4" style="background-color:#423352">
+
+        <div class="container">
+          <div class="row">
+<!--             <img class="mb-4" src="images/logo.png" width="250" alt="ascend" />
+ -->
+            
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <div class="py-5 text-center">
+        <p class="mb-0 text-secondary fs--1 fw-medium">All rights reserved. <i class="bi-c-circle"></i> 2024<br>unlockascend.com is a property of The UX Guys </p>
+      </div>
+
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="theme.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">
   </body>
-</html>
+
+
+<style type="text/css">
+  main {background:#F0E7FC;}
+  .hero-title {font-size: 4em;max-width: 800px;margin:auto;} 
+  .colored {color: #F28F79;}
+  .sub-heading {font-size: 1.4em;max-width:700px;margin:1em auto;}
+
+  .padding-transition {
+  padding: 0.25rem !important;
+  background-color: rgb(192 208 255 / 18%);
+  box-shadow: 0px 2px 10px #eee;
+}
+
+
+.btn-secondary {border:none;color:#423352;background: #fff;padding:1em 2em}
+
+.btn-secondary:hover {border:1px solid #423352;color:#fff;background: #423352;}
+
+.btn-primary {border:none;color:#fff;background: #423352;padding:1em 2em}
+
+.btn-primary:hover {border:1px solid #fff;color:#423352;background: #fff;}
+
+.hero-container {min-height:500px;}
+
+.dark-section {background:#25064D;}
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake-animation {
+    animation: shake 0.5s ease infinite;
+}
+
+
+
+
+    .navbar-toggler {
+      display: none;
+    }
+
+
+
+#25064D
+#F0E7FC
+#F2E7C4
+#F28F79
+#D99B96
+</style>
+
