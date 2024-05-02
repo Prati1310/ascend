@@ -125,6 +125,12 @@ ENV SECRET_KEY_BASE 1
 # ENV AWS_ACCESS_KEY_ID=1
 # ENV AWS_SECRET_ACCESS_KEY=1
 
+# Create and activate swapfile
+RUN fallocate -l 512M /swapfile && \
+    chmod 0600 /swapfile && \
+    mkswap /swapfile && \
+    swapon /swapfile
+
 # Run build task defined in lib/tasks/fly.rake
 ARG BUILD_COMMAND="bin/rails fly:build"
 RUN ${BUILD_COMMAND}
