@@ -1,20 +1,24 @@
 databases:
-  - name: portfolio
-    databaseName: portfolio
-    user: portfolio
+  - name: ascendretreat
+    databaseName: ascendretreat
+    user: ascendretreat
     plan: free
 
 services:
   - type: web
-    name: portfolio
-    env: ruby
+    name: ascendretreat
+    runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: portfolio
+          name: ascendretreat
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
+
